@@ -12,8 +12,8 @@
 #' @importFrom methods as
 #' @examples
 #' g <- matrix(c(0,0,0,1,0,0,0,1,0), 3)
-#' transClose(g)
-transClose <- function(g, u = NULL, v = NULL) {
+#' transitive.closure(g)
+transitive.closure <- function(g, u = NULL, v = NULL) {
     if (is(g, "graphNEL")) {
         a <- as(g, "matrix")
     } else if (is(g, "matrix")) {
