@@ -1725,7 +1725,7 @@ mnem <- function(D, inference = "em", search = "greedy", phi = NULL,
         n <- ncol(res[[1]]$adj)
         mw <- 1
         probs <- matrix(0, k, ncol(data))
-        probs <- getProbs(probs, k, data, res, method, n, affinity,
+        probs <- getProbs(probs, k, data, res, method, affinity,
                           converged, subtopoX, ratio, mw = mw, fpfn = fpfn,
                           Rho = Rho, complete = complete)
         subtopoX <- probs$subtopoX
@@ -1753,7 +1753,7 @@ mnem <- function(D, inference = "em", search = "greedy", phi = NULL,
                     n <- ncol(res1[[1]]$adj)
                     if (is.null(p)) {
                         probs <- matrix(0, k, ncol(data))
-                        probs0 <- getProbs(probs, k, data, res1, method, n,
+                        probs0 <- getProbs(probs, k, data, res1, method,
                                           affinity, converged, subtopoX,
                                           ratio, mw = mw, fpfn = fpfn,
                                           Rho = Rho, complete = complete)
@@ -1930,7 +1930,6 @@ mnem <- function(D, inference = "em", search = "greedy", phi = NULL,
                               probs0$probs <- probsold
                               probs <- probsold
                               probs <- getProbs(probs, k, data, res, method,
-                                                n,
                                                 affinity, converged,
                                                 subtopoX, ratio,
                                                 mw = mw, fpfn = fpfn,
@@ -3006,7 +3005,7 @@ fuzzyindex <- function(x, data, logtype = 2, complete = FALSE, ...) {
     }
     n <- getSgeneN(data)
     probs <- matrix(0, k, ncol(x$data))
-    probs <- getProbs(probs, k, data, res, n = n, mw = x$mw, logtype = logtype,
+    probs <- getProbs(probs, k, data, res, mw = x$mw, logtype = logtype,
                       Rho=Rho, complete = complete)
     ll <- probs$ll
     mw <- probs$mw
