@@ -2704,7 +2704,7 @@ clustNEM <- function(data, k = 2:10, cluster = NULL, starts = 1, logtype = 2,
         n <- getSgeneN(data)
         probs <- matrix(0, K, ncol(data))
         probs <- do.call(getProbs, c(list(probs=probs, k=K, data=data,
-                                          res=res, n=n, mw=res$mw, Rho=Rho),
+                                          res=res, mw=res$mw, Rho=Rho),
                                      getprobspars))
         colnames(probs$probs) <- colnames(data)
         res$ll <- probs$ll
