@@ -1226,7 +1226,7 @@ mnemh <- function(data, k = 2, logtype = 2, getprobspars = list(), ...) {
     }
     probs <- matrix(0, K, ncol(data))
     probs <- do.call(getProbs, c(list(probs=probs, k=K, data=data,
-                                      res=res, n=n), getprobspars))
+                                      res=res), getprobspars))
     colnames(probs$probs) <- colnames(D)
     res <- list(limits = limits, comp = comp, data = D, mw = probs$mw,
                 probs = probs$probs, lls = lls, ll = probs$ll)
@@ -2022,7 +2022,6 @@ mnem <- function(D, inference = "em", search = "greedy", phi = NULL,
         ##             probs0$probs <- probsold
         ##             probs <- probsold
         ##             probs <- getProbs(probs, k, data, res, method,
-        ##                               n,
         ##                               affinity, converged,
         ##                               subtopoX, ratio,
         ##                               mw = mw, fpfn = fpfn,
